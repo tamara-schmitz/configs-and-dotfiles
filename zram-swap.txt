@@ -1,0 +1,2 @@
+zypper in systemd-zram-service
+systemctl enable zramswap.service

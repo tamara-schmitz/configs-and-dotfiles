@@ -1,0 +1,17 @@
+# colourful
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias diff='diff --color=auto'
+
+alias vim='nvim'
+alias vi='nvim'
+alias ll='ls -lh'
+alias lah='ls -lah'
+alias o='xdg-open'
+alias map='telnet mapscii.me'
+alias podman='docker' # swap when using Docker
+
+alias aliases='less ~/.alias'
+alias aliasedit='vi ~/.alias'

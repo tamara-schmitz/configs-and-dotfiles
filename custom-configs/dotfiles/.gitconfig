@@ -1,0 +1,18 @@
+# This is Git's per-user configuration file.
+[user]
+name = X
+email = X
+	signingkey = X
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[rebase]
+	autoStash = true
+[pull]
+	rebase = true
+[commit]
+	gpgsign = true
