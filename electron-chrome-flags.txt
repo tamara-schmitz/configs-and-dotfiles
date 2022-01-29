@@ -1,0 +1,12 @@
+You can tweak Electron apps using Experimental flags!
+
+Just tweak a normal Chromium browser on `chrome://flags`.
+Go to `chrome://version` and under command line copy everything from `--flag-switches-begin` until `--flag-switches-end`.
+
+Example flags that you might want to use on Linux:
+`--flag-switches-begin --enable-gpu-rasterization --ignore-gpu-blocklist --enable-features=CanvasOopRasterization,EnableOopPrintDrivers,UseSkiaRenderer,WebRtcHideLocalIpsWithMdns --flag-switches-end`
+
+With these flags copied, find the .desktop file of your application. It might be under /usr/share/applications.
+In the line beginning with `Exec` paste your flags after the path to the binary and before any other arguments if there are any.
+
+Now next time you launch your application it should be using your flags. Check your task manager by searching for your application like slack or discord.
