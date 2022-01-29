@@ -1,4 +1,5 @@
 How I renamed the master repo in my fork and then pulled the upstream master:
+
 - Rename branch: `git branch -m orig-name new-name`
 - Delete branch with old name from remote and push local under new name: `git push origin :orig-name new-name` (can fail on Github as you need at least one branch in your repo)
 - Add upstream as second remote: `git remote upstream git-url`
