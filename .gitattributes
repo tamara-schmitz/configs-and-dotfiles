@@ -1,0 +1,1 @@
+*.gz,*.xz,*.bz2,*.zstd,*.7z,*.rar,*.zip filter=lfs diff=lfs merge=lfs -text
