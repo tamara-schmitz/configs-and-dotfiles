@@ -1,0 +1,29 @@
+Secure erase an SD card:
+blkdiscard /dev/mmcblk0
+
+http://3gfp.com/wp/2014/07/formatting-sd-cards-for-speed-and-lifetime/
+
+Most of recent SD cards need a 4MiB block alignment to perform their best. Here is how to do the partitioning:
+
+$ sudo fdisk -H 255 -S 63 -u -c /dev/sdb
+Command (m for help): p
+Disk /dev/sdb: 7948 MB, 7948206080 bytes
+255 heads, 63 sectors/track, 966 cylinders, total 15523840 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x000edc02
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1   *        8192    15523839     7757824    b  W95 FAT32
+
+Then format using mkfs.*
+
+Adjust io scheduler to deadline or noop
+
+/etc/udev/rules.d/60-nonrotational-iosched.rules):
+ACTION=="add|change", KERNEL=="mmcblk[0-9]", ATTR{queue/scheduler}="deadline"
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="deadline"
+
+
+Better dd command
+xzcat image.img.xz | dd bs=4M of=/dev/sdX iflag=fullblock oflag=direct status=progress; sync

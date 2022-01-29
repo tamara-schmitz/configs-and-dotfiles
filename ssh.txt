@@ -1,0 +1,3 @@
+Better SSH key cipher:
+
+ssh-keygen -t ed25519 -a 512
