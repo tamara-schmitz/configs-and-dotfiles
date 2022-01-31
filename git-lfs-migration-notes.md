@@ -12,7 +12,7 @@ Instead, start the migration like this:
 
 ```bash
 git lfs migrate import --everything \
-    --include="*.mp4,*.webm,*.mkv,*.flac,*.mp3,*.jpg,*.png,*.bmp,*.webp,*.ogg,*.gz,*.xz,*.bz2,*.zstd,*.7z,*.rar,*.zip,*.gpg,*.pdf,*.docx,*.doc,*.odt,*.xls,*.ods,*.pptx,*.odp"
+    --include="*.mp4,*.MP4,*.mov,*.MOV,*.webm,*.mkv,*.flac,*.mp3,*.jpg,*.JPG,*.jpeg,*.JPEG,*.png,*.PNG,*.bmp,*.webp,*.ogg,*.gz,*.xz,*.bz2,*.zstd,*.7z,*.rar,*.zip,*.gpg,*.pdf,*.docx,*.doc,*.odt,*.xls,*.ods,*.pptx,*.odp"
 ```
 
 Once completed, run `git push --force` **to rewrite history!! muahahah!**.
