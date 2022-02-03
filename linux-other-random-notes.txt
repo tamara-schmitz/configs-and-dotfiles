@@ -1,0 +1,83 @@
+Nice packages:
+irqbalance htop iotop iftop powertop atop latencytop virt-top ftop systat tmux fstrim hdparm smartctl lm-sensors nmap bind-utils zsh vim rclone git gamemoded earlyoom iperf3
+
+## zram swap, very useful especially on low end devices:
+### openSUSE
+zypper in systemd-zram-service
+systemctl enable zramswap.service
+### Debian / Ubuntu
+apt install zram-tools
+systemctl status zramswap.service
+
+## Good openSUSE Mirrors:
+http://ftp.uni-erlangen.de/packman/suse
+http://ftp.uni-erlangen.de/opensuse/
+http://ftp.gwdg.de/pub/opensuse
+
+# Advice for partitioning
+## SSDs
+### Preparation
+Before reusing an SSD or reinstalling the OS, run a secure-erase.
+This makes sure that the SSD is aware that any previous data
+is supposed to be gone and improves performance.
+Secure-erase can either be done through some vendors BIOS settings or using hdparm (siehe hier https://www.thomas-krenn.com/de/wiki/SSD_Secure_Erase#Notwendige_Schritte_f.C3.BCr_ein_Secure_Erase)
+Less ideal alternative but better than nothing: `blktrim /dev/sdX` 
+
+### Considerations
+SSDs do so-called overprovisioning to allow for their Garbage Collection and management tasks to work.
+That basically means it hides physical storage from you.
+Still this reserved storage may not be enough. Hence intentionally
+leaving more free unformatted space can help especially in cases
+where you may not want to use TRIM (such as with LUKS).
+An alternative but more troublesome method is to activate HPA (Host Protected Area) on the SSD on hdparm. However this may cause issues with ignore_hpa and is hence not recommended.
+
+## File systems
+I prefer Btrfs due to its snapshot feature and good integration into openSUSE. But ext4 always works for regular general purpose disks.
+I wish to try out f2fs some day.
+Another cool feature of Btrfs is support for compression.
+
+# /etc/fstab
+## good partition options:
+`noatime`
+### for ext4 partitions:
+`data=ordered`
+### for SSDs
+`discard` or `discard=async` for Btrfs - depends on fs support. not recommended. use `systemctl enable fstrim.timer` instead. Test with `fstrim -vv /` to make sure it is supported properly.
+### compression on btrfs
+`compress=zstd` (requires newer GRUB version) or `compress=zlib`
+
+# /etc/lvm/lvm.conf
+`issue_discards=1`
+
+# /etc/crypttab
+### for SSDs
+`discard` (not recommended due to security concers)
+
+# /etc/udev/rules.d/65-blk-schedulers.conf
+# check /usr/lib/udev/rules.d/ first for existing confs!
+# defaults should be good enough
+```
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="deadline"
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+ACTION=="add|change", KERNEL=="mmcblk[0-9]", ATTR{queue/scheduler}="deadline"
+ACTION=="add|change", KERNEL=="nvme[0-9]", ATTR{queue/scheduler}="none"
+```
+
+# udev to reduce data loss with usb
+ACTION=="add|change", KERNEL=="sd[a-z]", SUBSYSTEM=="block", ENV{ID_USB}=="usb", RUN+="/usr/bin/hdparm -W0 /dev/$KERNEL"
+
+## check current scheduler
+`cat /sys/block/sda/queue/scheduler`
+
+# systemd
+`systemctl enable fstrim.timer`
+
+# Tuning?
+(https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/power_management_guide/tuned)
+
+# SSH server
+/etc/ssh/sshd_config
+`MaxAuthTries 1`
+
+# Good dd options to use
+dd if=input.img of=/dev/sdX status=progress conv=fsync
