@@ -12,6 +12,8 @@ set incsearch
 "set number
 " Auto newline
 set tw=80
+" visualise tabs and trailing spaces
+set list
 " Tabs to spaces
 set tabstop=4
 set shiftwidth=4
