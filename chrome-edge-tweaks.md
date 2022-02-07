@@ -10,7 +10,6 @@ edge://gpu.
 - chrome://flags/#canvas-oop-rasterization
 - chrome://flags/#enable-oop-print-drivers
 - chrome://flags/#disable-process-reuse
-- chrome://flags/#enable-raw-draw
 - chrome://flags/#enable-zero-copy
 
 ## Disable these:
