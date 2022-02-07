@@ -7,9 +7,11 @@ edge://gpu.
 - chrome://flags/#enable-webrtc-pipewire-capturer
 - chrome://flags/#enable-webrtc-hide-local-ips-with-mdns
 - chrome://flags/#enable-gpu-rasterization
-- chrome://flags/#enable-skia-renderer
 - chrome://flags/#canvas-oop-rasterization
 - chrome://flags/#enable-oop-print-drivers
+- chrome://flags/#disable-process-reuse
+- chrome://flags/#enable-raw-draw
+- chrome://flags/#enable-zero-copy
 
 ## Disable these:
 
