@@ -36,7 +36,7 @@
 ## Remove the leading # first to enable this; lines starting with # are ignored.
 
 # server_names = ['scaleway-fr', 'google', 'yandex', 'cloudflare']
-server_names = ['doh-fi-blahdns', 'doh-fi-blahdns-v6', 'doh-de-blahdns-v6', 'dnscrypt-ch-blahdns-ipv4', 'doh-ch-blahdns', 'dnscrypt-fi-blahdns-ipv6', 'adguard-dns-family-doh', 'ams-ads-doh-nl', 'dnscrypt-de-blahdns-ipv4']
+server_names = ['doh-fi-blahdns', 'doh-de-blahdns', 'doh-ch-blahdns', 'adguard-dns-family-doh', 'ams-ads-doh-nl']
 
 ## List of local addresses and ports to listen to. Can be IPv4 and/or IPv6.
 ## Example with both IPv4 and IPv6:
@@ -71,7 +71,7 @@ ipv4_servers = true
 ipv6_servers = true
 
 # Use servers implementing the DNSCrypt protocol
-dnscrypt_servers = true
+dnscrypt_servers = false
 
 # Use servers implementing the DNS-over-HTTPS protocol
 doh_servers = true
@@ -461,7 +461,8 @@ cache_neg_max_ttl = 600
   ## Can be set to /dev/stdout in order to log to the standard output.
 
   # file = '/var/log/dnscrypt-proxy/query.log'
-  file = '/dev/stdout'
+  # file = '/dev/stdout'
+  file = '/tmp/crypt-query.log'
 
 
   ## Query log format (currently supported: tsv and ltsv)
