@@ -36,7 +36,8 @@
 ## Remove the leading # first to enable this; lines starting with # are ignored.
 
 # server_names = ['scaleway-fr', 'google', 'yandex', 'cloudflare']
-server_names = ['doh-fi-blahdns', 'doh-de-blahdns', 'doh-ch-blahdns', 'adguard-dns-family-doh', 'ams-ads-doh-nl']
+server_names = ['doh-fi-blahdns', 'doh-de-blahdns', 'doh-ch-blahdns',
+'ams-ads-doh-nl', 'ahadns-doh-nl', 'ahadns-doh-pl']
 
 ## List of local addresses and ports to listen to. Can be IPv4 and/or IPv6.
 ## Example with both IPv4 and IPv6:

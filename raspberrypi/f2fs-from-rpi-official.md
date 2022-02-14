@@ -24,6 +24,9 @@ is the same or older than Raspberry Pi OS' version! According to Arch wiki it
 can cause problems, if you format the partition on a newer system. Check kernel
 versions using `uname -a`.
 
+Since the OS is Debian based you could install set up a VM with that specific
+Debian version.
+
 Reformat the partition:
 
 `mkfs.f2fs -O extra_attr,inode_checksum,sb_checksum /dev/sdX2`
