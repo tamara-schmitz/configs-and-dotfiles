@@ -15,7 +15,7 @@ Power off the Pi, insert its SD card into your linux computer.
 
 Mount the Pi SD card on your machine. Then rsync the data to your computer
 
-`mkdir ~/pi-backup && sudo rsync -avx /run/media/user/pi /home/user/pi-backup`
+`mkdir ~/pi-backup && sudo rsync -avxP /run/media/user/pi /home/user/pi-backup`
 
 ## Reformat as F2FS
 
@@ -49,12 +49,12 @@ Next we need to make some changes to the F2FS filesystem. So let's mount that ne
 
 Rsync the data onto the F2FS filesystem:
 
-`sudo rsync -avx /home/user/pi-backup /mnt`
+`sudo rsync -avxP /home/user/pi-backup /mnt`
 
 Adjust the fstab so that the partition can be properly mounted in the later boot process. Edit the file */mnt/etc/fstab* and navigate to the line that mounts */*.
 Replace the *PARTUUID* with the root's *UUID*. You can find it out using `blkid /dev/sdX2`. Replace *ext4* with *btrfs*. Set the last number from *1* to *0*.
 The root line in fstab should look something like this:
-`UUID=XXXX  /  f2fs  defaults,whint_mode=fs-based,atgc,gc_merge,lazytime  0  0`
+`UUID=XXXX  /  f2fs  defaults,whint_mode=fs-based,lazytime  0  2`
 
 Ok. Now unmount and hope that it boots ;)
 
