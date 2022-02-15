@@ -37,7 +37,7 @@ Mount the boot partition. Replace X with whatever letter your SD card was assign
 
 `mount /dev/sdX1 /mnt`
 
-Edit the *cmdline.txt* file on the boot partition. Replace whatever is listed as the *root* variable with `root=UUID=xxxx` where xxxx represents the UUID you just copied. Also change *rootfstype* with `rootfstype=f2fs`.
+Edit the *cmdline.txt* file on the boot partition. Replace *rootfstype* with `rootfstype=f2fs`.
 
 Unmount the boot partition:
 
