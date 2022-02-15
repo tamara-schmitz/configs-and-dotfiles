@@ -52,9 +52,9 @@ Rsync the data onto the F2FS filesystem:
 `sudo rsync -avxP /home/user/pi-backup /mnt`
 
 Adjust the fstab so that the partition can be properly mounted in the later boot process. Edit the file */mnt/etc/fstab* and navigate to the line that mounts */*.
-Replace the *PARTUUID* with the root's *UUID*. You can find it out using `blkid /dev/sdX2`. Replace *ext4* with *btrfs*. Set the last number from *1* to *0*.
+Replace *ext4* with *f2fs* and add these flags: `defaults,whint_mode=fs-based,lazytime`.
 The root line in fstab should look something like this:
-`UUID=XXXX  /  f2fs  defaults,whint_mode=fs-based,lazytime  0  2`
+`PARTUUID=XXXX-02  /  f2fs  defaults,whint_mode=fs-based,lazytime  0  1`
 
 Ok. Now unmount and hope that it boots ;)
 
