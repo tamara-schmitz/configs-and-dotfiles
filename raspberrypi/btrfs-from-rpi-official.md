@@ -96,6 +96,8 @@ Login, and check that swap works using `cat /proc/swaps`. It should list our swa
 Finally we can free up some space by removing the old ext4 data: `btrfs subvolume delete /ext2_saved`
 And here are some other optional things to do:
 - set up snapper so that rootfs snapshots are created during updates: `snapper create-config /`
+- But do not enable quota on the filesystem as it causes performance issues and
+  long pauses!
 - run a true fs check every month. this will read the entire disk and slow your system down: `systemctl enable btrfs-scrub.timer`
 
 
