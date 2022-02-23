@@ -1,5 +1,7 @@
 Nice packages:
-irqbalance htop iotop iftop powertop atop latencytop virt-top ftop systat tmux fstrim hdparm smartctl lm-sensors nmap bind-utils zsh vim rclone git gamemoded earlyoom iperf3
+irqbalance htop iotop iftop powertop atop latencytop virt-top ftop systat tmux
+fstrim hdparm smartctl lm-sensors nmap bind-utils zsh vim rclone git gamemoded
+earlyoom iperf3 zram-generator
 
 ## zram swap, very useful especially on low end devices:
 ### openSUSE
@@ -56,28 +58,28 @@ Another cool feature of Btrfs is support for compression.
 # /etc/udev/rules.d/65-blk-schedulers.conf
 # check /usr/lib/udev/rules.d/ first for existing confs!
 # defaults should be good enough
-```
-ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="deadline"
-ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
-ACTION=="add|change", KERNEL=="mmcblk[0-9]", ATTR{queue/scheduler}="deadline"
-ACTION=="add|change", KERNEL=="nvme[0-9]", ATTR{queue/scheduler}="none"
-```
+    ```
+    ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="deadline"
+    ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+    ACTION=="add|change", KERNEL=="mmcblk[0-9]", ATTR{queue/scheduler}="deadline"
+    ACTION=="add|change", KERNEL=="nvme[0-9]", ATTR{queue/scheduler}="none"
+    ```
 
 # udev to reduce data loss with usb
-ACTION=="add|change", KERNEL=="sd[a-z]", SUBSYSTEM=="block", ENV{ID_USB}=="usb", RUN+="/usr/bin/hdparm -W0 /dev/$KERNEL"
+    ACTION=="add|change", KERNEL=="sd[a-z]", SUBSYSTEM=="block", ENV{ID_USB}=="usb", RUN+="/usr/bin/hdparm -W0 /dev/$KERNEL"
 
 ## check current scheduler
-`cat /sys/block/sda/queue/scheduler`
+    `cat /sys/block/sda/queue/scheduler`
 
 # systemd
-`systemctl enable fstrim.timer`
+    `systemctl enable fstrim.timer`
 
 # Tuning?
-(https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/power_management_guide/tuned)
+    (https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/power_management_guide/tuned)
 
 # SSH server
-/etc/ssh/sshd_config
-`MaxAuthTries 1`
+    /etc/ssh/sshd_config
+    `MaxAuthTries 1`
 
 # Good dd options to use
-dd if=input.img of=/dev/sdX status=progress conv=fsync
+    dd if=input.img of=/dev/sdX status=progress conv=fsync
