@@ -35,5 +35,6 @@ export GPG_TTY=$(tty)
 eval `ssh-agent`
 
 source ~/.zshenv
+source ~/.alias
 
 #xscreensaver &
