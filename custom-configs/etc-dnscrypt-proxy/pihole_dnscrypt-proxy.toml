@@ -1,14 +1,14 @@
 # Empty listen_addresses to use systemd socket activation
 listen_addresses = ['127.0.0.1:5300', '[::1]:5300']
-max_clients = 256
-timeout = 1000
+max_clients = 128
+timeout = 5000
 keepalive = 1200
 cert_refresh_delay = 90
 
-server_names = ['doh.appliedprivacy.net', 'doh.ffmuc.net', 'doh.ffmuc.net-2', 'ffmuc.net', 'meganerd', 'meganerd-doh-ipv4', 'pf-doh', 'dns.watch', 'dns.digitale-gesellschaft.ch', 'dns.digitale-gesellschaft.ch-2', 'doh-ibksturm', 'ibksturm', 'libredns', 'bortzmeyer', 'circl-doh', 'scaleway-fr', 'scaleway-ams', 'cloudflare', 'cloudflare-ipv6']
-lb_strategy = 'p4'
+server_names = ['doh.appliedprivacy.net', 'doh.ffmuc.net', 'doh.ffmuc.net-2', 'ffmuc.net', 'meganerd', 'meganerd-doh-ipv4', 'pf-doh', 'dns.watch', 'dns.digitale-gesellschaft.ch', 'dns.digitale-gesellschaft.ch-2', 'doh-ibksturm', 'ibksturm', 'libredns', 'bortzmeyer', 'circl-doh', 'scaleway-fr', 'scaleway-ams']
+lb_strategy = 'p3' # dont go higher. otherwise latency becomes unacceptable on RPi1
 #lb_strategy = 'random'
-#lb_estimator = true
+lb_estimator = true
 dnscrypt_servers = false
 doh_servers = true
 ipv4_servers = true
@@ -20,7 +20,7 @@ require_nolog = true
 require_nofilter = true
 require_dnssec = true
 
-cache = true
+cache = false
 cache_size = 512
 cache_min_ttl = 180
 cache_max_ttl = 360
@@ -46,5 +46,4 @@ forwarding_rules = 'forwarding_rules.txt'
   minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
   refresh_delay = 72
   prefix = ''
-
 
