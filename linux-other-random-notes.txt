@@ -1,8 +1,3 @@
-Nice packages:
-irqbalance htop iotop iftop powertop atop latencytop virt-top ftop systat tmux
-fstrim hdparm smartctl lm-sensors nmap bind-utils zsh vim rclone git gamemoded
-earlyoom iperf3 zram-generator
-
 ## zram swap, very useful especially on low end devices:
 ### openSUSE
 zypper in systemd-zram-service
