@@ -46,13 +46,13 @@ server_names = ['doh-fi-blahdns', 'doh-de-blahdns', 'doh-ch-blahdns',
 ## To listen to all IPv4 addresses, use `listen_addresses = ['0.0.0.0:53']`
 ## To listen to all IPv4+IPv6 addresses, use `listen_addresses = ['[::]:53']`
 
-#listen_addresses = ['[::]:53000']
-listen_addresses = []
+listen_addresses = ['[::]:53000']
+#listen_addresses = []
 
 
 ## Maximum number of simultaneous client connections to accept
 
-max_clients = 250
+max_clients = 1024
 
 
 ## Switch to a different system user after listening sockets have been created.

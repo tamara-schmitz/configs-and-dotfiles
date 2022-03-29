@@ -1,15 +1,15 @@
 # Empty listen_addresses to use systemd socket activation
-listen_addresses = ['127.0.0.1:5300', '[::1]:5300']
-max_clients = 128
-timeout = 5000
+listen_addresses = ['[::]:5300']
+max_clients = 1024
+timeout = 2000
 keepalive = 1200
 cert_refresh_delay = 90
 
 server_names = ['doh.appliedprivacy.net', 'doh.ffmuc.net', 'doh.ffmuc.net-2', 'ffmuc.net', 'meganerd', 'meganerd-doh-ipv4', 'pf-doh', 'dns.watch', 'dns.digitale-gesellschaft.ch', 'dns.digitale-gesellschaft.ch-2', 'doh-ibksturm', 'ibksturm', 'libredns', 'bortzmeyer', 'circl-doh', 'scaleway-fr', 'scaleway-ams']
-lb_strategy = 'p3' # dont go higher. otherwise latency becomes unacceptable on RPi1
+lb_strategy = 'p4' # dont go higher. otherwise latency becomes unacceptable on RPi1
 #lb_strategy = 'random'
-lb_estimator = true
-dnscrypt_servers = false
+lb_estimator = false
+dnscrypt_servers = true
 doh_servers = true
 ipv4_servers = true
 ipv6_servers = true
