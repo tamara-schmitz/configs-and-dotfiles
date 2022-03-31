@@ -1,0 +1,9 @@
+If you want to overprovision, instead of creating a smaller partition, you can
+make a smaller namespace. Ofc only if the controller supports changing your
+namespaces.
+
+https://forum.level1techs.com/t/nvme-namespaces-little-known-cool-features-of-most-nvme-and-user-programmable-endurance/172660
+
+Next time I reformat or get a new NVMe I want to try: --block-size=4096. Usually
+the emulated blocksize is 512, but a bigger blocksize should improve
+performance. Compatibility tho?
