@@ -1,6 +1,7 @@
 You can tweak Electron apps using Experimental flags!
 
-Just tweak a normal Chromium browser on `chrome://flags`.
+Just tweak a normal Chromium browser on `chrome://flags`. These tweaks are
+turned into Chrome launch parameters which we can use for Electron.
 Go to `chrome://version` and under command line copy everything from `--flag-switches-begin` until `--flag-switches-end`.
 
 Example flags that you might want to use on Linux:
