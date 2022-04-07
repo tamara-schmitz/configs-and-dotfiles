@@ -1,6 +1,10 @@
 zypper in \
-htop iotop iftop powertop atop latencytop virt-top ftop systat \
-tmux \
-zram-generator fstrim hdparm smartctl lm-sensors earlyoom irqbalance \
-nmap iperf3 bind-utils zsh vim rclone git gamemoded \
-neovim
+htop iotop iftop powertop atop latencytop virt-top ftop \
+screen tmux \
+zram-generator hdparm smartmontools sensors earlyoom irqbalance gamemoded \
+nmap iperf bind-utils \
+ffmpeg mpv libaom libvpx \
+rclone git \
+neovim \
+fish \
+noto-mono-fonts texlive-noto noto-serif-fonts noto-sans-mono-fonts noto-sans-kr-fonts noto-sans-jp-fonts noto-sans-sc-fonts noto-sans-display-fonts
