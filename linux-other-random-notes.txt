@@ -104,10 +104,10 @@ Little hack to make desktop less stuttery when connected to AC:
 set -xeuo
 
 while :; do
+    sleep 10
+
     # run-on is tlp specific
     run-on-bat nvidia-settings -a [gpu:0]/GPUPowerMizerMode=0
     run-on-ac nvidia-settings -a [gpu:0]/GPUPowerMizerMode=1
-
-    sleep 10
 done
 ```
