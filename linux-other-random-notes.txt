@@ -86,3 +86,28 @@ Another cool feature of Btrfs is support for compression.
 
 # Good dd options to use
     dd if=input.img of=/dev/sdX status=progress conv=fsync
+
+# Proprietary NVIDIA GPU in Laptop
+
+Little hack to make desktop less stuttery when connected to AC:
+
+`crontab -e` in usermode:
+
+```
+@reboot tmux new-session -d -s "nvidia-power" ~/bin/nvidia-powermode.sh
+```
+
+`~/bin/nvidia-powermode.sh`
+
+```bash
+#!/bin/sh
+set -xeuo
+
+while :; do
+    # run-on is tlp specific
+    run-on-bat nvidia-settings -a [gpu:0]/GPUPowerMizerMode=0
+    run-on-ac nvidia-settings -a [gpu:0]/GPUPowerMizerMode=1
+
+    sleep 10
+done
+```
