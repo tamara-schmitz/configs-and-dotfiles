@@ -8,3 +8,4 @@ How I renamed the master repo in my fork and then pulled the upstream master:
 - Change remote of orig-name to remote of fork: `git branch orig-name --set-upstream-to=origin/orig-name`
 - If you want to merge new changes from upstream into your fork use: `git fetch upstream && git checkout orig-name && git merge upstream/orig-name`
 - Use LFS: `git lfs init`, `git lfs track "*.gz,*.xz,*.bz2,*.zstd,*.7z,*.rar,*.zip"`
+- Squash changes that you didn't push yet? `git rebase --interactive HEAD~2`
