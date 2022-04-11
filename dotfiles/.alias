@@ -11,7 +11,18 @@ alias ll='ls -lh'
 alias lah='ls -lah'
 alias o='xdg-open'
 alias map='telnet mapscii.me'
-alias podman='docker' # swap when using Docker
+
+# use native Qt Wayland
+if $XDG_SESSION_TYPE = "wayland"
+    export QT_QPA_PLATFORM=wayland
+end
+
+# alias podman and docker if installed
+if command -p podman
+    alias docker='podman'
+elif command -p docker
+    alias podman='docker'
+fi
 
 alias aliases='less ~/.alias'
-alias aliasedit='vi ~/.alias'
+alias aliasedit='nvim ~/.alias'
