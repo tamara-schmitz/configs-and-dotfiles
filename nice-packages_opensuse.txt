@@ -5,6 +5,7 @@ zram-generator hdparm smartmontools sensors earlyoom irqbalance gamemoded \
 nmap iperf bind-utils \
 ffmpeg mpv libaom libvpx \
 rclone git \
+zstd lz4 unrar 7zip \
 neovim \
 fish \
 noto-mono-fonts texlive-noto noto-serif-fonts noto-sans-mono-fonts noto-sans-kr-fonts noto-sans-jp-fonts noto-sans-sc-fonts noto-sans-display-fonts
