@@ -3,7 +3,9 @@ htop iotop iftop powertop atop latencytop virt-top ftop \
 screen tmux \
 zram-generator hdparm smartmontools sensors earlyoom irqbalance gamemoded \
 nmap iperf bind-utils \
-ffmpeg mpv libaom libvpx \
+ffmpeg mpv libaom3 libvpx7 \
+pipewire-pulseaudio pipewire-alsa pipewire-libjack-0_3 gstreamer-plugin-pipewire gstreamer-plugin-pipewire pipewire-tools \
+wireplumber wireplumber-audio easyeffects \
 rclone git \
 zstd lz4 unrar 7zip \
 neovim \
