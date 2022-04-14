@@ -42,3 +42,10 @@ Usually its:
   </match>
 </fontconfig>
 ```
+
+Buuut wait. This might be overwritten by a config file somewhere else. So make
+sure to check that these options are not overwritten elsewhere, and if they are
+remove the whole `<match>` section overwriting them in these locations:
+
+- `~/.fonts.conf`
+- `~/.config/fontconfig/fonts.conf`
