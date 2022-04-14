@@ -1,0 +1,17 @@
+opkg update
+opkg install luci-app-sqm kmod-sched htop
+
+# System > Scheduled Tasks
+```
+# Reboot at 03:30 every monday
+# Note: To avoid infinite reboot loop, wait 70 seconds
+# and touch a file in /etc so clock will be set
+# properly to 3:31 on reboot before cron starts.
+30 3 * * 1 sleep 70 && touch /etc/banner && reboot
+```
+
+# useful debug commands:
+tc -s qdisc show
+ipset list
+iptables -t mangle -L
+
