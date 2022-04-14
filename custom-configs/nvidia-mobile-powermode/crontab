@@ -1,2 +1,0 @@
-@reboot tmux new-session -d -s "nvidia-power" ~/bin/nvidia-powermode.sh
-
