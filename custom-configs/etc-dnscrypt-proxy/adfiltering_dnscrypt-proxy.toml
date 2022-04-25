@@ -35,9 +35,8 @@
 ##
 ## Remove the leading # first to enable this; lines starting with # are ignored.
 
-# server_names = ['scaleway-fr', 'google', 'yandex', 'cloudflare']
 server_names = ['doh-fi-blahdns', 'doh-de-blahdns', 'doh-ch-blahdns',
-'ams-ads-doh-nl', 'ahadns-doh-nl', 'ahadns-doh-pl']
+'ams-ads-doh-nl', 'ahadns-doh-nl', 'ahadns-doh-pl', 'dnsforge.de']
 
 ## List of local addresses and ports to listen to. Can be IPv4 and/or IPv6.
 ## Example with both IPv4 and IPv6:
@@ -122,12 +121,12 @@ force_tcp = false
 ## increase this. Startup may be slower if you do so.
 ## Don't increase it too much. 10000 is the highest reasonable value.
 
-timeout = 5000
+timeout = 3000
 
 
 ## Keepalive for HTTP (HTTPS, HTTP/2) queries, in seconds
 
-keepalive = 30
+keepalive = 60
 
 
 ## Add EDNS-client-subnet information to outgoing queries
