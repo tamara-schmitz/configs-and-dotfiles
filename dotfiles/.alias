@@ -13,14 +13,14 @@ alias o='xdg-open'
 alias map='telnet mapscii.me'
 
 # use native Qt Wayland
-if $XDG_SESSION_TYPE = "wayland"
+if [ $XDG_SESSION_TYPE = "wayland" ]; then
     export QT_QPA_PLATFORM=wayland
-end
+fi
 
 # alias podman and docker if installed
-if command -p podman
+if command -v podman  &> /dev/null; then
     alias docker='podman'
-elif command -p docker
+elif command -v docker  &> /dev/null; then
     alias podman='docker'
 fi
 
