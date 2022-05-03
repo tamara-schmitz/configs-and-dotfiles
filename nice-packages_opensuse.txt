@@ -1,5 +1,5 @@
 zypper in \
-htop iotop iftop powertop atop latencytop virt-top ftop \
+htop iotop iftop powertop atop latencytop virt-top ftop s-tui \
 screen tmux \
 zram-generator hdparm smartmontools sensors earlyoom irqbalance gamemoded \
 nmap iperf bind-utils \
