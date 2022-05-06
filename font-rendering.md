@@ -14,6 +14,11 @@ fonts all fonts from `C:\Windows\Fonts` and copying them into
 `/usr/share/fonts/fromwindows/`.
 
 3. GNOME Tweak Tool. Set font antialiasing to Subpixel and Hinting to Slight.
+Favourite fonts:
+- Interface text: Noto Sans Medium 11
+- Document text: Cantarell Regular 11
+- Monospace text: Source Code Pro Medium 10
+- Legacy Window Titles: Cantarell Bold 11
 
 4. Assign a subpixel geometry system wide in /etc/fonts/local.conf
 Usually its:
