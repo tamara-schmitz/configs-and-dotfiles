@@ -45,6 +45,15 @@ Usually its:
       <const>lcddefault</const>
     </edit>
   </match>
+  <match target="pattern">
+      <test name="family" qual="any">
+        <string>monospace</string>
+      </test>
+      <edit binding="strong" mode="prepend" name="family">
+        <string>Source Code Pro</string>
+      </edit>
+  </match>
+
 </fontconfig>
 ```
 
@@ -54,3 +63,8 @@ remove the whole `<match>` section overwriting them in these locations:
 
 - `~/.fonts.conf`
 - `~/.config/fontconfig/fonts.conf`
+
+## Potential broken font fix
+
+I encountered this before. If some applications seem broken, try fixing your
+permissions using `chmod -R 0755 /usr/share/fonts`
