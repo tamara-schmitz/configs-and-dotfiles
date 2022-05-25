@@ -1,0 +1,6 @@
+# snapshot at boot (useful if no timeline snapshotting)
+systemctl enable snapper-boot.timer
+
+# storage space constraints in your config files only apply if you use quota on
+# the BTRFS partion. i advice against quota due to bugs that cause second long I/O
+# stalls even on NVMe SSDs.
