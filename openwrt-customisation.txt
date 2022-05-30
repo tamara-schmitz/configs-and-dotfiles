@@ -10,6 +10,8 @@ opkg install luci-app-sqm kmod-sched htop
 30 3 * * 1 sleep 70 && touch /etc/banner && reboot
 ```
 
+# SQM: fq_codel + tbf is good enough. also supports software offloading
+
 # useful debug commands:
 tc -s qdisc show
 ipset list
