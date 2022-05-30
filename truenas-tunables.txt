@@ -1,0 +1,20 @@
+- new sysctl options
+vfs.zfs.l2arc.rebuild_enabled=1 # persistent l2arc
+net.inet.tcp.ecn.enable=1 # request ECN
+net.inet.tcp.rfc6675_pipe=1 # faster (S)ACK loss recovery
+net.inet.ip.maxfragpackets=0 # no fragmentation
+net.inet.ip.maxfragsperpacket=0
+net.inet6.ip6.maxfragpackets=0
+net.inet6.ip6.maxfrags=0
+- new loader options
+machdep.hyperthreading_allowed=0
+
+- defaults on TrueNAS 12
+net.inet.tcp.sendbuf_auto=1
+net.inet.tcp.recvbuf_auto=1
+net.inet.tcp.sack.enable=1
+net.inet.tcp.delayed_ack=0
+net.inet.tcp.cc.algorithm=newreno
+
+https://fasterdata.es.net/host-tuning/freebsd/
+https://calomel.org/freebsd_network_tuning.html
