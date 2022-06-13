@@ -18,9 +18,6 @@ test -z "$PROFILEREAD" && . /etc/profile || true
 #export LANG=es_ES.UTF-8	# uncomment this line for Spanish output
 export LANG=en_GB.UTF-8		# uncomment this line for English UK output
 
-# Some applications read the EDITOR variable to determine your favourite text
-# editor. So uncomment the line below and enter the editor of your choice :-)
-
 force_color_prompt=yes
 
 # Some people don't like fortune. If you uncomment the following lines,
