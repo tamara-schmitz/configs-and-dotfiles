@@ -1,0 +1,2 @@
+set -g mouse on
+set -g mode-keys vi
