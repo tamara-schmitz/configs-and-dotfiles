@@ -33,6 +33,4 @@ eval `ssh-agent`
 
 source ~/.alias
 
-tmux new-session -d -s "nvidia-power" ~/bin/nvidia-powermode.sh 2>/dev/null
-
 #xscreensaver &
