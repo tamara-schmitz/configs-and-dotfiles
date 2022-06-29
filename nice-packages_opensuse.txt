@@ -1,6 +1,6 @@
 zypper in \
 htop iotop iftop powertop atop latencytop virt-top ftop s-tui \
-screen tmux \
+screen tmux dash \
 zram-generator hdparm smartmontools sensors earlyoom irqbalance gamemoded \
 nmap iperf bind-utils whois mtr ncat \
 ffmpeg mpv libaom3 libvpx7 \
@@ -14,3 +14,5 @@ AdobeICCProfiles adobe-sourcecodepro-fonts \
 noto-serif-fonts \
 noto-sans-mono-fonts noto-sans-kr-fonts noto-sans-jp-fonts noto-sans-sc-fonts noto-sans-display-fonts \
 
+dash as sh:
+rm /bin/sh && ln -s /bin/dash /bin/sh
