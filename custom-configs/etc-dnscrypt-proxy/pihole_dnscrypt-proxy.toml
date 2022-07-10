@@ -1,14 +1,14 @@
 # Empty listen_addresses to use systemd socket activation
 listen_addresses = ['[::]:5300']
 max_clients = 1024
-timeout = 2000
-keepalive = 1200
+timeout = 1000
+keepalive = 300
 cert_refresh_delay = 90
 
-server_names = ['doh.appliedprivacy.net', 'doh.ffmuc.net', 'doh.ffmuc.net-2', 'ffmuc.net', 'meganerd', 'meganerd-doh-ipv4', 'pf-doh', 'dns.watch', 'dns.digitale-gesellschaft.ch', 'dns.digitale-gesellschaft.ch-2', 'doh-ibksturm', 'ibksturm', 'libredns', 'bortzmeyer', 'circl-doh', 'scaleway-fr', 'scaleway-ams']
-lb_strategy = 'p2' # dont go higher. otherwise latency becomes unacceptable on RPi1
+server_names = ['doh.appliedprivacy.net', 'doh.ffmuc.net', 'doh.ffmuc.net-2', 'ffmuc.net', 'doh.ffmuc.net-v6', 'doh.ffmuc.net-v6-2', 'ffmuc.net-v6', 'meganerd', 'meganerd-doh-ipv4', 'pf-doh', 'dns.watch', 'dns.digitale-gesellschaft.ch', 'dns.digitale-gesellschaft.ch-2', 'doh-ibksturm', 'libredns', 'bortzmeyer', 'circl-doh', 'scaleway-fr', 'scaleway-ams']
+lb_strategy = 'p3' # dont go higher. otherwise latency becomes unacceptable on RPi1
 #lb_strategy = 'random'
-lb_estimator = false
+lb_estimator = true
 dnscrypt_servers = true
 doh_servers = true
 ipv4_servers = true
@@ -36,8 +36,8 @@ forwarding_rules = 'forwarding_rules.txt'
 
 [nx_log]
   #file = '/var/log/dnscrypt-proxy/nx.log'
-  #file = '/dev/stdout'
-  file = '/dev/null'
+  file = '/dev/stdout'
+  #file = '/dev/null'
 
 [sources]
   [sources.'public-resolvers']
