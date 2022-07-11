@@ -36,7 +36,7 @@
 ## Remove the leading # first to enable this; lines starting with # are ignored.
 
 server_names = ['doh-fi-blahdns', 'doh-de-blahdns', 'doh-ch-blahdns',
-'ams-ads-doh-nl', 'ahadns-doh-nl', 'ahadns-doh-pl', 'dnsforge.de']
+'ams-ads-doh-nl', 'ahadns-doh-nl', 'ahadns-doh-pl', 'dnsforge.de', 'libredns-noads']
 
 ## List of local addresses and ports to listen to. Can be IPv4 and/or IPv6.
 ## Example with both IPv4 and IPv6:
@@ -337,7 +337,7 @@ block_undelegated = true
 ## TTL for synthetic responses sent when a request has been blocked (due to
 ## IPv6 or blocklists).
 
-reject_ttl = 10
+reject_ttl = 30
 
 
 
