@@ -2,12 +2,19 @@
 vfs.zfs.l2arc.rebuild_enabled=1 # persistent l2arc
 net.inet.tcp.ecn.enable=1 # request ECN
 net.inet.tcp.rfc6675_pipe=1 # faster (S)ACK loss recovery
+net.inet.tcp.fastopen.server_enable=1 # use TCP fastopen
 net.inet.ip.maxfragpackets=0 # no fragmentation
 net.inet.ip.maxfragsperpacket=0
 net.inet6.ip6.maxfragpackets=0
 net.inet6.ip6.maxfrags=0
 - new loader options
 machdep.hyperthreading_allowed=0
+- new rc.d options
+gateway_enable="YES"
+wireguard_enable="YES"
+wireguard_interfaces="wg42"
+- new post init command
+mkdir -p /usr/local/etc/wireguard && cp /root/wireguard/wg42.conf /usr/local/etc/wireguard/wg42.conf && /usr/local/etc/rc.d/wireguard start
 
 - defaults on TrueNAS 12
 net.inet.tcp.sendbuf_auto=1
