@@ -1,0 +1,2 @@
+# lower writeback cache ratio to 1%
+ACTION=="add|change", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ATTR{bdi/max_ratio}="1"

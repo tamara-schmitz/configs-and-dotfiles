@@ -62,19 +62,6 @@ Another cool feature of Btrfs is support for compression.
 ### for SSDs
 `discard` (not recommended due to security concers)
 
-# /etc/udev/rules.d/65-blk-schedulers.conf
-# check /usr/lib/udev/rules.d/ first for existing confs!
-# defaults should be good enough
-    ```
-    ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="deadline"
-    ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
-    ACTION=="add|change", KERNEL=="mmcblk[0-9]", ATTR{queue/scheduler}="deadline"
-    ACTION=="add|change", KERNEL=="nvme[0-9]", ATTR{queue/scheduler}="none"
-    ```
-
-# udev to reduce data loss with usb
-    ACTION=="add|change", KERNEL=="sd[a-z]", SUBSYSTEM=="block", ENV{ID_USB}=="usb", RUN+="/usr/bin/hdparm -W0 /dev/$KERNEL"
-
 ## check current scheduler
     `cat /sys/block/sda/queue/scheduler`
 
