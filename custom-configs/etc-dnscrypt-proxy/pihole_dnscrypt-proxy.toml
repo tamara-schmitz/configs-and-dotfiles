@@ -1,7 +1,7 @@
-# Added round robin sched policy using
+# Increase process niceness
 # systemctl edit dnscrypt-proxy && systemctl edit pihole-FTL
 # [Service]
-# CPUSchedulingPolicy=rr
+# Nice=-15
 
 # Empty listen_addresses to use systemd socket activation
 listen_addresses = ['[::]:5300']
