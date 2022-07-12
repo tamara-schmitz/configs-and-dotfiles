@@ -196,7 +196,7 @@ cert_refresh_delay = 240
 
 ## DoH: Disable TLS session tickets - increases privacy but also latency
 
-# tls_disable_session_tickets = false
+tls_disable_session_tickets = true
 
 
 ## DoH: Use a specific cipher suite instead of the server preference

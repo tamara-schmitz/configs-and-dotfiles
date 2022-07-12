@@ -1,7 +1,7 @@
 # Increase process niceness
 # systemctl edit dnscrypt-proxy && systemctl edit pihole-FTL
 # [Service]
-# Nice=-15
+# Nice=-20
 
 # Empty listen_addresses to use systemd socket activation
 listen_addresses = ['[::]:5300']
@@ -9,7 +9,7 @@ max_clients = 256
 timeout = 1000
 keepalive = 900
 cert_refresh_delay = 90
-tls_disable_session_tickets = false
+tls_disable_session_tickets = true
 tls_cipher_suite = [52392, 49199]
 
 forwarding_rules = 'forwarding_rules.txt'
