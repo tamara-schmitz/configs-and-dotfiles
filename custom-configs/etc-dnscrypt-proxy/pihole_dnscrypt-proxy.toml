@@ -9,8 +9,12 @@ max_clients = 256
 timeout = 1000
 keepalive = 900
 cert_refresh_delay = 90
+tls_disable_session_tickets = false
+tls_cipher_suite = [52392, 49199]
 
-server_names = ['doh.appliedprivacy.net', 'doh.ffmuc.net', 'doh.ffmuc.net-2', 'ffmuc.net', 'doh.ffmuc.net-v6', 'doh.ffmuc.net-v6-2', 'ffmuc.net-v6', 'meganerd', 'meganerd-doh-ipv4', 'meganerd-doh-ipv6', 'pf-doh', 'dns.watch', 'dns.digitale-gesellschaft.ch', 'dns.digitale-gesellschaft.ch-2', 'doh-ibksturm', 'libredns', 'bortzmeyer', 'circl-doh', 'scaleway-fr', 'scaleway-ams']
+forwarding_rules = 'forwarding_rules.txt'
+
+server_names = ['doh.appliedprivacy.net', 'doh.ffmuc.net', 'doh.ffmuc.net-2', 'ffmuc.net', 'doh.ffmuc.net-v6', 'doh.ffmuc.net-v6-2', 'ffmuc.net-v6', 'meganerd', 'meganerd-doh-ipv4', 'meganerd-doh-ipv6', 'dns.watch', 'dns.watch-ipv6', 'dns.digitale-gesellschaft.ch', 'dns.digitale-gesellschaft.ch-2', 'doh-ibksturm', 'ibksturm', 'libredns', 'scaleway-fr', 'scaleway-fr-ipv6', 'scaleway-ams', 'scaleway-ams-ipv6', 'uncensoreddns-ipv4', 'uncensoreddns-ipv6']
 lb_strategy = 'p2' # dont go higher. otherwise latency becomes unacceptable on RPi1
 #lb_strategy = 'random'
 lb_estimator = true
@@ -25,14 +29,8 @@ require_nolog = true
 require_nofilter = true
 require_dnssec = true
 
+reject_ttl = 15
 cache = false
-cache_size = 512
-cache_min_ttl = 180
-cache_max_ttl = 360
-cache_neg_min_ttl = 240
-cache_neg_max_ttl = 900
-
-forwarding_rules = 'forwarding_rules.txt'
 
 [query_log]
   #file = '/var/log/dnscrypt-proxy/query.log'
@@ -45,10 +43,15 @@ forwarding_rules = 'forwarding_rules.txt'
   #file = '/dev/null'
 
 [sources]
-  [sources.'public-resolvers']
-  url = 'https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md'
-  cache_file = '/var/cache/dnscrypt-proxy/public-resolvers.md'
-  minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
-  refresh_delay = 72
-  prefix = ''
-
+  [sources.public-resolvers]
+    urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md', 'https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md', 'https://ipv6.download.dnscrypt.info/resolvers-list/v3/public-resolvers.md']
+    cache_file = 'public-resolvers.md'
+    minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
+    refresh_delay = 72
+    prefix = ''
+  [sources.relays]
+    urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/relays.md', 'https://download.dnscrypt.info/resolvers-list/v3/relays.md', 'https://ipv6.download.dnscrypt.info/resolvers-list/v3/relays.md']
+    cache_file = 'relays.md'
+    minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
+    refresh_delay = 72
+    prefix = ''
