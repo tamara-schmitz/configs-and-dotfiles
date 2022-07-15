@@ -1,5 +1,5 @@
 #/bin/sh
-set -xeou
+set -xeuo pipefail
 
 # tar folder, then compress with zstd, then gpg encrypt all using pipes.
 
